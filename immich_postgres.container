@@ -1,0 +1,12 @@
+[Unit]
+Description=PostgreSQL for Immich
+After=network.target
+
+[Container]
+Pod=immich.pod
+ContainerName=immich_postgres
+Image=ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
+EnvironmentFile=%h/immich/.env
+
+[Service]
+Restart=always

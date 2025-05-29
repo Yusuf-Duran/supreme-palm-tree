@@ -1,0 +1,13 @@
+[Unit]
+Description=Immich Machine Learning
+After=network.target
+
+[Container]
+Pod=immich.pod
+ContainerName=immich_machine_learning
+Image=ghcr.io/immich-app/immich-machine-learning:release
+Volume=immich_model_cache.volume:/cache:z
+EnvironmentFile=%h/immich/.env
+
+[Service]
+Restart=always

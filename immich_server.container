@@ -1,0 +1,21 @@
+[Unit]
+Description=Immich Server
+After=immich_redis.service immich_postgres.service immich_machine_learning.service
+Requires=immich_redis.service immich_postgres.service immich_machine_learning.service
+
+
+[Container]
+Pod=immich.pod
+Image=ghcr.io/immich-app/immich-server:release
+ContainerName=immich_server
+Volume=%h/immich/upload:/usr/src/app/upload:z
+EnvironmentFile=%h/immich/.env
+Timezone = "Europe/Berlin"
+
+[Service]
+Restart=always
+TimeoutStartSec=5m
+
+[Install]
+WantedBy=default.target
+
