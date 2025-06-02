@@ -1,3 +1,4 @@
 [Pod]
 PodName=immich
 PublishPort=2283:2283
+Network=caddi

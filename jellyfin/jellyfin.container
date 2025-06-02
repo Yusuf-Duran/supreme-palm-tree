@@ -11,6 +11,7 @@ Volume=jellyfin_config.volume:/config:z
 PublishPort=8096:8096
 User=1000:1000
 UserNS=keep-id
+Network=caddi
 
 [Service]
 Restart=always
