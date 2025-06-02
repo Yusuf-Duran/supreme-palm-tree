@@ -1,0 +1,9 @@
+[Unit]
+Description=Podman Volume for Caddy Persistent Data (TLS, ACME)
+
+[Volume]
+VolumeName=caddy_data
+
+[Install]
+WantedBy=multi-user.target
+

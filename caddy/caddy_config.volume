@@ -1,0 +1,9 @@
+[Unit]
+Description=Podman Volume for Caddy Configuration
+
+[Volume]
+VolumeName=caddy_config
+
+[Install]
+WantedBy=multi-user.target
+

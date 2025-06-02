@@ -1,0 +1,9 @@
+[Unit]
+Description=Podman Volume for Caddy Site Content
+
+[Volume]
+VolumeName=caddy_sites
+
+[Install]
+WantedBy=multi-user.target
+

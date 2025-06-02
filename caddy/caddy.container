@@ -1,0 +1,26 @@
+[Unit]
+Description=Caddy Web Server (Podman Quadlet, using named volumes)
+Wants=network-online.target
+After=network-online.target
+
+[Container]
+Image = docker.io/library/caddy:latest
+PublishPort=80:80
+PublishPort=443:443
+PublishPort=443:443/udp
+ContainerName=caddy
+HostName=caddy
+Volume = ./Caddyfile:/etc/caddy/Caddyfile:Z
+Volume = caddy_config.volume:/etc/caddy:Z
+Volume = caddy_sites.volume:/srv:Z
+Volume = caddy_data.volume:/data:Z
+Volume = caddy_logs.volume:/var/log/caddy:Z
+Network = caddi
+
+[Service]
+Restart=always
+ExecReload=podman exec caddy caddy reload --config /etc/caddy/Caddyfile --force
+
+[Install]
+WantedBy=default.target
+

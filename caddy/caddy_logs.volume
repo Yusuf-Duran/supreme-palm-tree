@@ -1,0 +1,9 @@
+[Unit]
+Description=Podman Volume for Caddy Logs
+
+[Volume]
+VolumeName=caddy_logs
+
+[Install]
+WantedBy=multi-user-target
+
